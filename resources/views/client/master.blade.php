@@ -11,8 +11,8 @@
         </div>
     <!--end LOADER -->
 
-     <!-- HEADER -->
-        {{-- @include('client.partials.header') --}}
+    <!-- HEADER -->
+        @include('client.partials.header')
     <!-- HEADER -->
 
     <!-- OVERLAY-MENU -->

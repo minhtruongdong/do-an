@@ -13,7 +13,7 @@
                     <div class="swiper-slide">
                         <div class="banner">
                             <div class="banner-inner">
-                                <div class="banner-item" style="background-image: url({{asset('administrator/img/banner-img-1.jpg')}});">
+                                <div class="banner-item" style="background-image: url({{asset('administrator/img/banner-img-1.jpg')}})">
                                     <div class="banner-item-small-wrapper">
                                         <div class="banner-item-small">
                                             <span data-swiper-parallax="-100"><i>branding &#47; photoshooting</i></span>

@@ -16,10 +16,14 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        
         if (Auth::check()){
+            if (Auth::user()->status == 2){
+                return redirect()->route('client.index');
+            }
             return $next($request);
         }
         return redirect()->back();
     }
-    
+
 }
