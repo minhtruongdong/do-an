@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -13,10 +14,11 @@ class ClientController extends Controller
      */
     public function index()
     {   
-        $categories = \App\Models\Category::where('parent_id',8)->get();
+        $categories = Category::where('parent_id',8)->get();
         $products_lastest = Product::orderBy('created_at','DESC')
         ->with('category')
         ->skip(0)->take(5)->get();
+        
         $products_feature_lastest =Product::orderBy('created_at','DESC')
         ->with('category')
         ->where('featured',2)

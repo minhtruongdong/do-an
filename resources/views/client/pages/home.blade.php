@@ -114,7 +114,7 @@
             <div class="empty-space h35-xs h50-md"></div>
             <div class="services small text-center">
                 <div class="row">
-                    @foreach($categories->take(4) as $index => $category)
+                    {{-- @foreach($categories->take(4) as $index => $category)
                     <div class="col-sm-6 col-md-3">
                         <div class="icon-wrapper">
                            <a href="#" class="icon">
@@ -128,7 +128,7 @@
                             </article>
                         </div>
                     </div>
-                    @endforeach
+                    @endforeach --}}
 
                 </div>
             </div>
@@ -755,7 +755,7 @@
                     <div class="swiper-style-4">
                         <div class="swiper-container" data-speed="1000" data-space="30" data-breakpoints="1" data-slides-per-view="3" data-xs-slides="1" data-sm-slides="2" data-md-slides="3">
                             <div class="swiper-wrapper">
-                                @foreach($products_lastest as $item)
+                                {{-- @foreach($products_lastest as $item)
                                 <div class="swiper-slide">
                                     <a href="#" class="img-hover-2 img-fluid"><img src="{{asset('images/'.$item->image)}}" alt=""></a>
                                     <div class="empty-space h20-xs"></div>
@@ -771,7 +771,7 @@
                                         <div class="btn-wrap"><a href="{{route('client.cart.addToCart',['id', $item -> id])}}" class="btn-2 mt"><span>add to cart</span></a></div>
                                     </article>
                                 </div>
-                                @endforeach
+                                @endforeach --}}
                             </div>
                             <div class="swiper-pagination swiper-pagination-black"></div>
                         </div>
@@ -791,7 +791,7 @@
                     <div class="col-md-12">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <a href="#" class="img-hover-2 img-fluid"><img src="{{asset('images/'.$products_feature_lastest->image)}}" alt=""></a>
+                                {{-- <a href="#" class="img-hover-2 img-fluid"><img src="{{asset('images/'.$products_feature_lastest->image)}}" alt=""></a>
                                 <div class="empty-space h20-xs"></div>
                                 <article class="small-sm bg-text text-center">
                                     <a href="{{route('client.product.productdetail',['id'=>$products_feature_lastest->id]) }}"><h6 class="h8 hover-6">{{$products_feature_lastest -> name}}</h6></a>
@@ -802,7 +802,7 @@
                                     <div class="empty-space h25-xs"></div>
                                     <a class="price"> {{number_format($products_feature_lastest ->price,0,"",'.')}} VND</a>
                                     <div class="empty-space h5-xs"></div>
-                                    <div class="btn-wrap"><a href="{{route('client.cart.addToCart',['id', $item -> id])}}" class="btn-2 mt"><span>add to cart</span></a></div>
+                                    <div class="btn-wrap"><a href="{{route('client.cart.addToCart',['id', $item -> id])}}" class="btn-2 mt"><span>add to cart</span></a></div> --}}
                                 </article>
                             </div>
                         </div>
