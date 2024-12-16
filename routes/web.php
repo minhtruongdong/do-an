@@ -14,15 +14,12 @@ use App\Http\Middleware\CheckLogin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('client.pages.home');
 });
-
-
 
 Route::prefix('auth')->name('auth.')->group(function(){
     Route::get('login',[LoginController::class,'showLogin'])->name('showLogin');
     Route::post('login',[LoginController::class,'login'])->name('login');
-
     Route::get('logout',[LoginController::class,'logout'])->name('logout');
 });
 

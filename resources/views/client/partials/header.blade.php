@@ -2,7 +2,7 @@
     <div class="wide-container-fluid">
         <div class="row">
             <div class="col-xs-2">
-                <a class="logo" href="index.html"><img src="{{asset('administrator/img/logo.png')}}" alt="" /></a>  
+                <a class="logo" href="{{route('client.index')}}"><img src="{{asset('administrator/img/logo.png')}}" alt="" /></a>  
             </div>
             <div class="col-xs-10 text-right">
 
@@ -17,7 +17,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="shop.html"><span>Products</span></a>
+                        <a href=""><span>Products</span></a>
                         <span></span>
                         <ul>
                             <li><a href="shop.html">Products #1</a></li>
@@ -43,6 +43,14 @@
 
                     <li><a href="checkout.html"><span>Checkout</span></a></li>
                     <li><a href="contact.html"><span>Contact us</span></a></li>
+                    <li><a href="{{route('client.contact')}}"><span>Contact us</span></a></li>
+
+                    @if (Auth::check() && Auth::user()->status == 1)
+                        <li>
+                            <a href="{{route('admin.dash.index')}}"><span>Management page</span></a>
+                        </li>
+                    @endif
+
                 </ul>
 
                 <!-- basket -->
@@ -55,8 +63,25 @@
                 </div>
                 <!-- login -->
                 <div class="login-wrapper">
-                    <div class="login open-popup" data-rel="2"><span>Log in &#47; Sing up</span></div>
-                </div>     
+                    @if (Auth::check())
+                        {{-- nếu đã đăng nhập --}}
+                        <div class="login" data-rel="2">
+                            <a href="{{route('auth.logout')}}">
+                                <span>Log Out</span>
+                            </a>
+                        </div>
+                    @else
+                        {{-- nếu chưa đăng nhập --}}
+                        <div class="login">
+                            <a href="{{route('auth.login')}}">
+                                <span>Log In</span>
+                            </a>
+                        </div>
+                    @endif
+                        
+                    
+                </div>    
+                
 
                 <div class="hamburger-icon">
                     <span></span>

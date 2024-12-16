@@ -28,18 +28,18 @@
                             <div class="mb-4">
                                 <label for="text">Description</label>
                                 <textarea value="{{old('description')}}" class="form-control" name="description" id="" cols="20" rows="10"></textarea>
-                                <script>
+                                {{-- <script>
                                     CKEDITOR.replace('description');
-                                </script>
+                                </script> --}}
                             </div>
                             <!-- End of Form -->
                             <!-- Form -->
                             <div class="mb-4">
                                 <label for="text">Content</label>
                                 <input type="text" name="content" value="{{old('content')}}" class="form-control" >
-                                <script>
+                                {{-- <script>
                                     CKEDITOR.replace('content');
-                                </script>
+                                </script> --}}
                             </div>
                             <!-- End of Form -->
 
