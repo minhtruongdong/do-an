@@ -114,58 +114,22 @@
             <div class="empty-space h35-xs h50-md"></div>
             <div class="services small text-center">
                 <div class="row">
+                    @foreach($categories->take(4) as $index => $category)
                     <div class="col-sm-6 col-md-3">
                         <div class="icon-wrapper">
                            <a href="#" class="icon">
-                                <img src="{{asset('administrator/img/service-img-1.png')}}" alt="">
+                                <img src="{{asset('administrator/img/service-img-'. ($index+=1) .'.png')}}" alt="">
                             </a> 
                         </div>
                         <div class="article-wrapper">
                             <article>
-                                <a href="#"><h6 class="h8 hover-3">Corporative identity</h6></a>
+                                <a href="{{route('client.product.category',['id'=> $category->id])}}"><h6 class="h8 hover-3">{{$category -> name }}</h6></a>
                                 <p>Quisque with placerat Porttitor nisi felis Congue in & Tempus</p>
                             </article>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="icon-wrapper">
-                           <a href="#" class="icon">
-                                <img src="{{asset('administrator/img/service-img-2.png')}}" alt="">
-                            </a> 
-                        </div>
-                        <div class="article-wrapper">
-                            <article>
-                                <a href="#"><h6 class="h8 hover-3">Corporative identity</h6></a>
-                                <p>Quisque with placerat Porttitor nisi felis Congue in & Tempus</p>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="icon-wrapper">
-                           <a href="#" class="icon">
-                                <img src="{{asset('administrator/img/service-img-3.png')}}" alt="">
-                            </a> 
-                        </div>
-                        <div class="article-wrapper">
-                            <article>
-                                <a href="#"><h6 class="h8 hover-3">Corporative identity</h6></a>
-                                <p>Quisque with placerat Porttitor nisi felis Congue in & Tempus</p>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="icon-wrapper">
-                           <a href="#" class="icon">
-                                <img src="{{asset('administrator/img/service-img-4.png')}}" alt="">
-                            </a> 
-                        </div>
-                        <div class="article-wrapper">
-                            <article>
-                                <a href="#"><h6 class="h8 hover-3">Corporative identity</h6></a>
-                                <p>Quisque with placerat Porttitor nisi felis Congue in & Tempus</p>
-                            </article>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
             <div class="empty-space h35-xs h100-md"></div>
@@ -775,7 +739,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <h2 class="h2">Sale<span></span></h2>
+                    <h2 class="h2">Lastest Sale<span></span></h2>
                 </div>
                 <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
                     <div class="text-center grey-dark">
@@ -791,67 +755,61 @@
                     <div class="swiper-style-4">
                         <div class="swiper-container" data-speed="1000" data-space="30" data-breakpoints="1" data-slides-per-view="3" data-xs-slides="1" data-sm-slides="2" data-md-slides="3">
                             <div class="swiper-wrapper">
+                                @foreach($products_lastest as $item)
                                 <div class="swiper-slide">
-                                    <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/img-3.png')}}" alt=""></a>
+                                    <a href="#" class="img-hover-2 img-fluid"><img src="{{asset('images/'.$item->image)}}" alt=""></a>
                                     <div class="empty-space h20-xs"></div>
                                     <article class="small-sm bg-text">
-                                        <a href="#"><h6 class="h8 hover-6">Lady flower</h6></a>
+                                        <a href="{{route('client.product.productdetail',['id'=>$item->id]) }}"><h6 class="h8 hover-6">{{Str::limit($item ->name,30)}}</h6></a>
                                         <div class="empty-space h5-xs"></div>
-                                        <p>Morbi velit enim, porttitor and ipsum quis, vehiculapropousing sapien convallis</p>
+                                        <p>{{$item-> description}}</p>
+                                        <div class="empty-space h5-xs"></div>
+                                        <a href="{{route('client.product.category',['id'=>$item->category->id])}}">{{$item-> category -> name}}</a>
                                         <div class="empty-space h25-xs"></div>
-                                        <a href="#" class="price">&#36;58<sup>55</sup></a>
+                                        <a class="price"> {{number_format($item ->price,0,"",'.')}} VND</a>
+                                        <div class="empty-space h5-xs"></div>
+                                        <div class="btn-wrap"><a href="{{route('client.cart.addToCart',['id', $item -> id])}}" class="btn-2 mt"><span>add to cart</span></a></div>
                                     </article>
                                 </div>
-                                <div class="swiper-slide">
-                                    <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/img-4.png')}}" alt=""></a>
-                                    <div class="empty-space h20-xs"></div>
-                                    <article class="small-sm bg-text">
-                                        <a href="#"><h6 class="h8 hover-6">creative book</h6></a>
-                                        <div class="empty-space h5-xs"></div>
-                                        <p>Morbi velit enim, porttitor and ipsum quis, vehiculapropousing sapien convallis</p>
-                                        <div class="empty-space h25-xs"></div>
-                                        <a href="#" class="price">&#36;150<sup>55</sup></a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                   <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/img-5.png')}}" alt=""></a>
-                                    <div class="empty-space h20-xs"></div>
-                                    <article class="small-sm bg-text">
-                                        <a href="#"><h6 class="h8 hover-6">Lady flower</h6></a>
-                                        <div class="empty-space h5-xs"></div>
-                                        <p>Morbi velit enim, porttitor and ipsum quis, vehiculapropousing sapien convallis</p>
-                                        <div class="empty-space h25-xs"></div>
-                                        <a href="#" class="price">&#36;14<sup>55</sup></a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/img-4.png')}}" alt=""></a>
-                                    <div class="empty-space h20-xs"></div>
-                                    <article class="small-sm bg-text">
-                                        <a href="#"><h6 class="h8 hover-6">Lady flower</h6></a>
-                                        <div class="empty-space h5-xs"></div>
-                                        <p>Morbi velit enim, porttitor and ipsum quis, vehiculapropousing sapien convallis</p>
-                                        <div class="empty-space h25-xs"></div>
-                                        <a href="#" class="price">&#36;58<sup>55</sup></a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/img-5.png')}}" alt=""></a>
-                                    <div class="empty-space h20-xs"></div>
-                                    <article class="small-sm bg-text">
-                                        <a href="#"><h6 class="h8 hover-6">creative book</h6></a>
-                                        <div class="empty-space h5-xs"></div>
-                                        <p>Morbi velit enim, porttitor and ipsum quis, vehiculapropousing sapien convallis</p>
-                                        <div class="empty-space h25-xs"></div>
-                                        <a href="#" class="price">&#36;150<sup>55</sup></a>
-                                    </article>
-                                </div>
+                                @endforeach
                             </div>
                             <div class="swiper-pagination swiper-pagination-black"></div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="empty-space h30-xs h100-md"></div>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2 class="h2">Best Sale On 2024<span></span></h2>
+                </div>
+            </div>
+
+            <div class="emty-space h45-xs h65-md">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="#" class="img-hover-2 img-fluid"><img src="{{asset('images/'.$products_feature_lastest->image)}}" alt=""></a>
+                                <div class="empty-space h20-xs"></div>
+                                <article class="small-sm bg-text text-center">
+                                    <a href="{{route('client.product.productdetail',['id'=>$products_feature_lastest->id]) }}"><h6 class="h8 hover-6">{{$products_feature_lastest -> name}}</h6></a>
+                                    <div class="empty-space h5-xs"></div>
+                                    <p>{{$products_feature_lastest-> description}}</p>
+                                    <div class="empty-space h5-xs"></div>
+                                    <a href="{{route('client.product.category',['id'=>$products_feature_lastest->category->id])}}">{{$products_feature_lastest-> category -> name}}</a>
+                                    <div class="empty-space h25-xs"></div>
+                                    <a class="price"> {{number_format($products_feature_lastest ->price,0,"",'.')}} VND</a>
+                                    <div class="empty-space h5-xs"></div>
+                                    <div class="btn-wrap"><a href="{{route('client.cart.addToCart',['id', $item -> id])}}" class="btn-2 mt"><span>add to cart</span></a></div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         <!-- sale -->
         <div class="empty-space h25-xs h100-md"></div>

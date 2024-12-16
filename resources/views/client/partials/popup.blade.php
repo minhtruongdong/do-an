@@ -4,10 +4,12 @@
     <div class="popup-content basket-popup" data-rel="1">
         <div class="layer-close"></div>
         <div class="popup-container size-2 right">
+            {{-- Cart popup --}}
             <div class="popup-align">
+                @for($i = 1 ; $i<=4 ; $i++)
                 <div class="basket-item">
                     <div class="basket-item-close"></div>
-                    <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-1-sm.jpg')}}" alt=""></a>
+                    <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-1-sm-copy.jpg')}}" alt=""></a>
                     <div class="description">
                         <article>
                             <a href="#"><h6 class="h10 hover-5">CHAIR WITH OPEN SPACE</h6></a>
@@ -24,25 +26,8 @@
                     </div>
                     <div class="price"><span>&#36;572<sup>00</sup></span></div>
                 </div>
-                <div class="basket-item">
-                    <div class="basket-item-close"></div>
-                    <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-2-sm.jpg')}}" alt=""></a>
-                    <div class="description">
-                        <article>
-                            <a href="#"><h6 class="h10 hover-5">CHAIR WITH OPEN SPACE</h6></a>
-                            <div class="empty-space h5-xs"></div>
-                            <p>Lorem ipsum dolor sit amet, cons adipisicing elit</p>
-                        </article>
-                    </div>
-                    <div class="quantity-wrapper">
-                        <div class="quantity">
-                            <input type="number" value="1">
-                            <i class="fa fa-caret-left" aria-hidden="true"></i>
-                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="price"><span>&#36;567<sup>00</sup></span></div>
-                </div>
+                @endfor
+
                 <div class="total-basket-price price">total price: <span>&#36;1139<sup>00</sup></span></div>
                 <div class="btn-wrap"><a href="#" class="btn-2"><span>proceed to checkout</span></a></div>
             </div>

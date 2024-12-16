@@ -5,7 +5,10 @@ use App\Http\Controllers\Admin\DashBoardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Client\ClientProductController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\CheckLogin;
 use Illuminate\Support\Facades\Route;
@@ -76,12 +79,44 @@ Route::middleware(CheckLogin::class)->group(function(){
 });
 
 
-Route::prefix('client') -> name('client.')->controller(ClientController::class) -> group(function(){
-    Route::get('index','index')->name('index');
-    Route::get('about','about')->name('about');
-    Route::get('category','category')->name('category');
-    Route::get('productdetail','productdetail')->name('productdetail');
-    Route::get('checkout','checkout')->name('checkout');
-    Route::get('contact','contact')->name('contact');
 
+
+// Route::prefix('client') -> name('client.' ) -> group(function(){
+//     Route::prefix('category') -> name('category.') ->controller(ClientController::class)->group(function(){
+//         Route::get('index','index')->name('index');
+//         Route::get('about','about')->name('about');
+//         Route::get('contact','contact')->name('contact');
+//     });
+
+//     Route::prefix('product') -> name('product.') ->controller(ClientProductController::class)->group(function(){
+//         Route::get('category','category')->name('category');
+//         Route::get('productdetail','productdetail')->name('productdetail');
+
+//     });
+
+
+//     Route::prefix('cart')->name('cart.')->controller(CartController::class)->group(function(){
+//         Route::get('checkout','checkout')->name('checkout');
+//     });
+
+// });
+
+
+Route::prefix('client')->name('client.')->group(function(){
+    Route::prefix('category') -> name('category.') ->controller(ClientController::class)->group(function(){
+        Route::get('index','index')->name('index');
+        Route::get('about','about')->name('about');
+        Route::get('contact','contact')->name('contact');
+    });
+
+    Route::prefix('product') -> name('product.') ->controller(ClientProductController::class)->group(function(){
+        Route::get('/the-loai/{id}','category')->name('category');
+        Route::get('/chi-tiet-san-pham/{id}','productdetail')->name('productdetail');
+
+    });
+    Route::prefix('cart')->name('cart.')->controller(CartController::class)->group(function(){
+        Route::get('/thanh-toan','checkout')->name('checkout');
+        Route::get('/gio-hang','cart')->name('cart');
+        Route::get('/them-gio-hang/{id}','addToCart')->name('addToCart');
+    });
 });

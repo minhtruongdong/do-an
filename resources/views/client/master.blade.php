@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('client.partials.head')
+    
 </head>
 <body>
     <div class="is-mobile"></div>
@@ -12,10 +13,10 @@
     <!--end LOADER -->
 
      <!-- HEADER -->
-        {{-- @include('client.partials.header') --}}
+        @include('client.partials.header')
     <!-- HEADER -->
 
-    <!-- OVERLAY-MENU -->
+    <!-- OVERLAY-MENU MOBILES -->
         @include('client.partials.menu')
     <!-- end OVERLAY-MENU -->
 
@@ -23,15 +24,14 @@
     @yield('content')
     <!-- content -->
 
-    <!-- POPUPS -->
+    <!-- CART -->
         @include('client.partials.popup')
 
     
     <!-- footer -->
     @include('client.partials.foot')
-                <!-- footer -->
+    <!-- footer -->
         
-
 
     @include('client.partials.footer')
 

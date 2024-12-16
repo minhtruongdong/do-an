@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title','Product detail')
 @section('content')
 
     <!-- content -->
@@ -26,12 +27,12 @@
                         <div class="detail-item">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <img class="img-main" src="img/shop/item-7.jpg" alt="">
+                                    <img class="img-main" src="{{asset('administrator/img/shop/item-7.jpg')}}" alt="">
                                     <div class="img-preview">
-                                        <img data-src="img/shop/item-7.jpg" src="img/shop/item-7-xs.jpg" alt="">
-                                        <img data-src="img/shop/item-7-2.jpg" src="img/shop/item-7-2-xs.jpg" alt="">
-                                        <img data-src="img/shop/item-7-3.jpg" src="img/shop/item-7-3-xs.jpg" alt="">
-                                        <img data-src="img/shop/item-7-4.jpg" src="img/shop/item-7-4-xs.jpg" alt="">
+                                        <img data-src="{{asset('administrator/img/shop/item-7.jpg')}}" src="{{asset('administrator/img/shop/item-7-xs.jpg')}}" alt="">
+                                        <img data-src="{{asset('administrator/img/shop/item-7-2.jpg')}}" src="{{asset('administrator/img/shop/item-7-2-xs.jpg')}}" alt="">
+                                        <img data-src="{{asset('administrator/img/shop/item-7-3.jpg')}}" src="{{asset('administrator/img/shop/item-7-3-xs.jpg')}}" alt="">
+                                        <img data-src="{{asset('administrator/img/shop/item-7-4.jpg')}}" src="{{asset('administrator/img/shop/item-7-4-xs.jpg')}}" alt="">
                                     </div>
                                     <div class="clear"></div>
                                 </div>
@@ -74,6 +75,19 @@
                                     </div>
                                     <div class="btn-wrap"><a href="#" class="btn-2"><span>add to cart</span></a></div>
                                     <div class="btn-wrap"><a href="#" class="btn-1 border"><span>add to favourites</span></a></div>
+                                    <div class="follow-category">
+                                        <span>Category:</span>
+                                        <div class="category">
+                                            Physical
+                                        </div>
+                                    </div>
+                                    <div class="follow-tag">
+                                        <span>Tag:</span>
+                                        <div class="tag">
+                                            <span>Relax</span>
+                                            <span>Revolution</span>
+                                        </div>
+                                    </div>
                                     <div class="follow-wrapper">
                                         <span>share:</span>
                                         <div class="follow">
@@ -105,7 +119,7 @@
                                     </div>
                                     <div class="tab-entry">
                                         <div class="testimonial">
-                                            <img src="img/shop/testimonial-1.jpg" alt="">
+                                            <img src="{{asset('administrator/img/shop/testimonial-1.jpg')}}" alt="">
                                             <div class="article">
                                                 <div class="author">
                                                     <span class="h6">GIGI HADID</span>
@@ -116,7 +130,7 @@
                                             </div>
                                         </div>
                                         <div class="testimonial">
-                                            <img src="img/shop/testimonial-2.jpg" alt="">
+                                            <img src="{{asset('administrator/img/shop/testimonial-2.jpg')}}" alt="">
                                             <div class="article">
                                                 <div class="author">
                                                     <span class="h6">JACK KUDROW</span>
@@ -171,7 +185,7 @@
                                 <div class="empty-space h30-xs"></div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#" class="img-hover-2"><img src="img/shop/item-10-md.jpg" alt="" class="img"></a>
+                                <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-10-md.jpg')}}" alt="" class="img"></a>
                                 <article>
                                     <div class="empty-space h10-xs"></div>
                                     <a href="#"><h6 class="h8 hover-4">MINIMALISTIC LAMP</h6></a>
@@ -181,7 +195,8 @@
                                 </article>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#" class="img-hover-2"><img src="img/shop/item-9-md.jpg" alt="" class="img"></a>
+                                <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-9-md.jpg')}}" alt="" class="img"></a>
+                                
                                 <article>
                                     <div class="empty-space h10-xs"></div>
                                     <a href="#"><h6 class="h8 hover-4">MINIMALISTIC LAMP</h6></a>
@@ -191,7 +206,7 @@
                                 </article>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#" class="img-hover-2"><img src="img/shop/item-4-md.jpg" alt="" class="img"></a>
+                                <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-4-md.jpg')}}" alt="" class="img"></a>
                                 <article>
                                     <div class="empty-space h10-xs"></div>
                                     <a href="#"><h6 class="h8 hover-4">MINIMALISTIC LAMP</h6></a>
@@ -201,7 +216,7 @@
                                 </article>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#" class="img-hover-2"><img src="img/shop/item-5-md.jpg" alt="" class="img"></a>
+                                <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-5-md.jpg')}}" alt="" class="img"></a>
                                 <article>
                                     <div class="empty-space h10-xs"></div>
                                     <a href="#"><h6 class="h8 hover-4">MINIMALISTIC LAMP</h6></a>
@@ -269,7 +284,11 @@
 
                             <h6 class="h6">PRICE</h6>
                             <div class="empty-space h30-xs"></div>
-                            <div id="slider-range"></div>
+                            <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 59.1837%;"></div>
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span>
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 59.1837%;"></span>
+                            </div>
                             <div class="empty-space h20-xs"></div>
                             <p>
                               <label for="amount">price:</label>
@@ -314,62 +333,6 @@
         <div class="empty-space h65-xs h100-md"></div>
         <div class="empty-space h0-xs h30-md"></div>
 
-        <!-- footer -->
-         <footer>
-            <div class="container small-sm">
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="index.html"><img src="img/logo.png" alt=""></a>
-                        <div class="empty-space h10-xs"></div>
-                        <p>Lorem ipsum dolor sit amet, cset tur adipiscingerat rutrum to the next side</p>
-                    </div>
-                    <div class="empty-space h20-xs h0-md"></div>
-                    <div class="col-md-2">
-                        <h6 class="h9">Address</h6>
-                        <div class="empty-space h10-xs"></div>
-                        <ul>
-                            <li>
-                                <a href="https://www.google.com.ua/maps/@40.7573849,-73.9721243,19z">319 Clematis St.Suite, 100 WPB, FL 33401</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="empty-space h20-xs h0-md"></div>
-                    <div class="col-md-2 col-md-offset-1">
-                        <h6 class="h9">Contact us</h6>
-                        <div class="empty-space h10-xs"></div>
-                        <ul>
-                            <li>
-                                <a href="tel:+380982367536">tel. +38 098 236 75 36</a>
-                            </li>
-                            <li>
-                                <a href="mailto:info@bloom.com">e-mail info@mevo.com</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="empty-space h20-xs h0-md"></div>
-                    <div class="col-md-3 col-md-offset-1">
-                        <h6 class="h9">Follow us</h6>
-                        <div class="empty-space h15-xs h25-md"></div>
-                        <div class="follow">
-                            <a class="item" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-                            <a class="item" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a class="item" href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                            <a class="item" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a class="item" href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="empty-space h25-xs"></div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright">
-                            &copy; 2017 All rights reserved. Development with <span class="fa fa-heart"></span> by <a href="https://themeforest.net/user/unionagency" target="blank">UnionAgency.</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer -->
 
     </div>
     <!-- content -->

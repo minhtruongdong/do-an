@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -11,25 +12,27 @@ class ClientController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('client.pages.home');
+    {   
+        $categories = \App\Models\Category::where('parent_id',8)->get();
+        $products_lastest = Product::orderBy('created_at','DESC')
+        ->with('category')
+        ->skip(0)->take(5)->get();
+        $products_feature_lastest =Product::orderBy('created_at','DESC')
+        ->with('category')
+        ->where('featured',2)
+        ->first(); 
+        // dd($products_lastest->toArray());
+        return view('client.pages.home',[
+            'categories'=> $categories,
+            'products_lastest'=> $products_lastest,
+            'products_feature_lastest' => $products_feature_lastest
+        ]);
     }
 
     public function about(){
         return view('client.pages.about');
     }
 
-    public function category(){
-        return view('client.pages.shop');
-    }
-
-    public function checkout(){
-        return view('client.pages.checkout');
-    }
-
-    public function productdetail(){
-        return view('client.pages.productdetail');
-    }
 
     public function contact(){
         return view('client.pages.contact');

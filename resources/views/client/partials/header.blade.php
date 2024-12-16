@@ -7,18 +7,8 @@
             <div class="col-xs-10 text-right">
 
                 <ul class="header-menu">
-                    <li class="active"><a href="index.html"><span>Home</span></a></li>
-                    <li><a href="about.html"><span>About us</span></a></li>
-                    <li><a href="service.html"><span>Services</span></a></li>
-                    <li>
-                        <a href="portfolio.html"><span>Portfolio</span></a>
-                        <span></span>
-                        <ul>
-                            <li><a href="portfolio.html">Portfolio #1</a></li>
-                            <li><a href="portfolio_wide.html">Portfolio #2</a></li>
-                            <li><a href="detail.html">Portfolio detail</a></li>
-                        </ul>
-                    </li>
+                    <li class="active"><a href="{{route('client.category.index')}}"><span>Home</span></a></li>
+                    <li><a href="{{route('client.category.about')}}"><span>About us</span></a></li>
                     <li class="dropdown-plus">
                         <a href="blog.html"><span>Blog</span></a>
                         <span></span>
@@ -33,9 +23,24 @@
                             <li><a href="shop.html">Products #1</a></li>
                             <li><a href="shop2.html">Products #2</a></li>
                             <li><a href="shop3.html">Products #3</a></li>
-                            <li><a href="shopdetail.html">Detail products</a></li>
+                            <li><a href="shopdetail.html">Detail products</a></li>            
                         </ul>
                     </li>
+
+                    @php
+                        $categories = \App\Models\Category::where('parent_id',8)->get();
+                    @endphp
+
+                    <li>
+                        <a href="shop.html"><span>Category</span></a>
+                        <span></span>
+                        <ul>
+                            @foreach($categories as $category)
+                            <li><a href="{{route('client.product.category',['id'=> $category->id])}}">{{$category->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+
                     <li><a href="checkout.html"><span>Checkout</span></a></li>
                     <li><a href="contact.html"><span>Contact us</span></a></li>
                 </ul>

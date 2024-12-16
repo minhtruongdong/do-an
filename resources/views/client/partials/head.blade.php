@@ -6,7 +6,8 @@
 <link href="{{asset('administrator/css/simplelightbox.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{asset('administrator/css/style.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{asset('administrator/css/sumoselect.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{asset('administrator/css/jquery-ui-1.12.1.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{asset('administrator/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{asset('administrator/img/favicon.ico')}}"/>
 <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i%7CPlayfair+Display+SC:900" rel="stylesheet">
-<title>Mevo</title>
+<title>@yield('title')</title>
