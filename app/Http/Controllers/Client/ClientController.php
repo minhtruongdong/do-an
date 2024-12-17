@@ -14,11 +14,12 @@ class ClientController extends Controller
      */
     public function index()
     {   
-        $categories = Category::where('parent_id',8)->get();
+        $categories = Category::where('parent_id',0)->get();
         $products_lastest = Product::orderBy('created_at','DESC')
         ->with('category')
-        ->skip(0)->take(5)->get();
-        
+        ->take(5)
+        ->get();
+
         $products_feature_lastest =Product::orderBy('created_at','DESC')
         ->with('category')
         ->where('featured',2)

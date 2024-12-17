@@ -26,9 +26,8 @@
 
     <!-- CART -->
         @include('client.partials.popup')
-
-    
     <!-- footer -->
+    
     @include('client.partials.foot')
     <!-- footer -->
         

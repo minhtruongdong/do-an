@@ -19,7 +19,7 @@ class CheckLogin
         
         if (Auth::check()){
             if (Auth::user()->status == 2){
-                return redirect()->route('client.index');
+                return redirect()->route('client.category.index');
             }
             return $next($request);
         }

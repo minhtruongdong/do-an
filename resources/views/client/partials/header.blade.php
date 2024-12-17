@@ -28,7 +28,7 @@
                     </li>
 
                     @php
-                        $categories = \App\Models\Category::where('parent_id',8)->get();
+                        $categories = \App\Models\Category::get();
                     @endphp
 
                     <li>
@@ -42,7 +42,6 @@
                     </li>
 
                     <li><a href="checkout.html"><span>Checkout</span></a></li>
-                    <li><a href="contact.html"><span>Contact us</span></a></li>
                     <li><a href="{{route('client.category.contact')}}"><span>Contact us</span></a></li>
 
                     @if (Auth::check() && Auth::user()->status == 1)
