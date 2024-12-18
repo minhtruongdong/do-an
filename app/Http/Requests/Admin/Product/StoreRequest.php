@@ -25,7 +25,7 @@ class StoreRequest extends FormRequest
             'name' =>'required|unique:products,name',
             'price' =>'required|numeric',
             'description' =>'required',
-            'image' =>'required|mimes:jpeg,jpg,png',
+            'image' =>'required|mimes:jpeg,jpg,png,avif',
         ];
     }
 
@@ -36,7 +36,7 @@ class StoreRequest extends FormRequest
             'price.required' => 'Please enter price',
             'description.required' => 'Please enter product description',
             'image.required' => 'Please upload product image',
-            'image.mimes' => 'Please upload jpeg,jpg,png image',            
+            'image.mimes' => 'Please upload jpeg,jpg,png,avif,webp image',            
         ];
     }
 }

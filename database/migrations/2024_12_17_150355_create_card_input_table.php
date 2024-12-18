@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('card_input', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->tinyInteger('status');
-            $table->string('image');
-            $table->integer('parent_id')->default(0);
+
+            $table->unsignedBigInteger('custom_product_id');
+            $table->foreign('custom_product_id')->references('id')->on('custom_product')->onDelete('cascade');
+
+            $table->integer('position');
+            $table->text('text');
+
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('card_input');
     }
 };

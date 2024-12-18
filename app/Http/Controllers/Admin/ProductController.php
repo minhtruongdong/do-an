@@ -208,4 +208,16 @@ class ProductController extends Controller
         return response()->json($results);
     }
     
+
+    public function getProductsByCategory($id)
+    {
+        // Lấy danh sách sản phẩm theo category ID
+        $products = Product::where('category_id', $id)->get();
+
+        return response()->json([
+            'products' => $products,
+        ]);
+    }
+
+
 }

@@ -39,6 +39,10 @@
                                 </div>
                                 <!-- End of Form --> 
                             </div>
+                            <div class="mb-4">
+                                <label for="formFile" class="form-label">Image</label>
+                                <input class="form-control" type="file" id="formFile" name="image">
+                            </div>
                         </div>
                         
                         <button class="btn mx-1 me-2 btn-secondary" type="submit">

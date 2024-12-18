@@ -15,14 +15,30 @@ class Product extends Model
 
     protected $guarded = [];
 
-    public function category():BelongsTo{
-        return $this->belongsTo(Category::class);
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
+
 
     public function product_image(): HasMany
     {
         return $this->hasMany(ProductImages::class);
     }
-
+    public function getProductsByCategory($categoryId)
+    {
+        $category = Category::find($categoryId);
+        $products = $category->products; // Giả sử mỗi category có các sản phẩm liên quan
+    
+        $productsArray = $products->map(function($product) {
+            return [
+                'name' => $product->name,
+                'image' => asset('images/' . $product->image), // Trả về đường dẫn hợp lệ cho ảnh
+            ];
+        });
+    
+        return response()->json(['products' => $productsArray]);
+    }
+    
     
 }

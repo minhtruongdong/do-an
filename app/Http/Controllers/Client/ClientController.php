@@ -14,14 +14,20 @@ class ClientController extends Controller
      */
     public function index()
     {   
-        $categories = Category::where('parent_id',8)->get();
+        $categories = Category::with(['products' => function ($query) {
+            $query->orderBy('created_at', 'DESC')->take(5); // Lấy 5 sản phẩm mới nhất cho mỗi danh mục
+        }])->where('parent_id', 0)->get();
+        
         $products_lastest = Product::orderBy('created_at','DESC')
         ->with('category')
-        ->skip(0)->take(5)->get();
+        ->take(5)
+        ->get();
+
         $products_feature_lastest =Product::orderBy('created_at','DESC')
         ->with('category')
         ->where('featured',1)
         ->first(); 
+        
         // dd($products_lastest->toArray());
         return view('client.pages.home',[
             'categories'=> $categories,
