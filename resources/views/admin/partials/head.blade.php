@@ -161,11 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script type="text/javascript" src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
-<script type="text/javascript" src="{{asset('search/search.js')}}"></script>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script src="{{asset('/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js')}}"></script> 
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -181,4 +179,11 @@ document.addEventListener("DOMContentLoaded", function () {
     background: #ddd !important;
     border-color: #ddd !important;
     }
+    .dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #aaa;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: transparent;
+    margin-left: 3px;
+}
 </style>
