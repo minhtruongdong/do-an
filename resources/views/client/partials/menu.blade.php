@@ -21,8 +21,8 @@
                         <p>total: <span>149.95&#36;</span></p>
                     </div>
                     <ul>
-                        <li class="active"><a href="{{route('client.category.index')}}">Home</a></li>
-                        <li><a href="{{route('client.category.about')}}">About us</a></li>
+                        <li class="active"><a href="{{route('client.index')}}">Home</a></li>
+                        <li><a href="{{route('client.about')}}">About us</a></li>
 
                         <li>
                             <a href="blog.html">Blog</a>

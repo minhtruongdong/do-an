@@ -7,8 +7,8 @@
             <div class="col-xs-10 text-right">
 
                 <ul class="header-menu">
-                    <li class="active"><a href="{{route('client.category.index')}}"><span>Home</span></a></li>
-                    <li><a href="{{route('client.category.about')}}"><span>About us</span></a></li>
+                    <li class="active"><a href="{{route('client.index')}}"><span>Home</span></a></li>
+                    <li><a href="{{route('client.about')}}"><span>About us</span></a></li>
                     <li class="dropdown-plus">
                         <a href="blog.html"><span>Blog</span></a>
                         <span></span>

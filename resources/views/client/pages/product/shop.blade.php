@@ -1,5 +1,5 @@
 @extends('client.master')
-@section('title','Shop')
+{{-- @section('title',$category->name) --}}
 
 @push('js')
 @endpush
@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
                         <article class="text-center grey-dark">
-                            <h1 class="h2"> Archives Products<span></span></h1>
+                            <h1 class="h2"> {{$category->name}}<span></span></h1>
                             <div class="empty-space h30-xs"></div>
                             <p>Curabitur ultricies semper eleifend. Pellentesque molestie purus non something else not tempus bibendum mattis making something</p>
                         </article>
@@ -73,10 +73,10 @@
                     <div class="col-md-9 col-sm-9 pull-right nopadding">
                         <div class="prod-item-wrapper">
 
-                            @for($i = 1 ; $i<=9 ; $i++)
+                            @foreach($products as $product)
                             <div class="shop-prod-item">
                                 <a href="shopdetail.html" class="img-hover-1">
-                                    <img src="{{asset('administrator/img/shop/item-7-copy.jpg') }}" alt="">
+                                    <img src="{{ asset('images/'.$product->image )}}" alt="" >
                                     <span class="shop-prod-item-hover">
                                         <span class="btn-2 open-popup" data-rel="4"><span>Quick view</span></span>
                                         <span class="btn-2"><span>add to cart</span></span>
@@ -85,27 +85,20 @@
                                 </a>
                                 <div class="description">
                                     <article>
-                                        <a href="shopdetail.html"><h6 class="h6 hover-4">chair with open space</h6></a>
+                                        <a href="{{route('client.product.productdetail',['id'=>$product->id])}}"><h6 class="h6 hover-4">{{$product->name}}</h6></a>
                                         <div class="empty-space h5-xs"></div>
-                                        <p>Lorem ipsum dolor sit amet, cons adipisicing elit</p>
+                                        <a href="{{route('client.product.category',['id'=>$product->category->id])}}">{{$product-> category -> name}}</a>
+                                        <div class="empty-space h5-xs"></div>
+                                        <p>{{$product->description}}</p>
                                     </article>
                                 </div>
-                                <span class="price">&#36;286<sup>00</sup></span>
+                                <span class="price"> {{number_format($product->price,0,"",'')}} VND</span>
                             </div>
 
-                            @endfor
+                            @endforeach
 
                         </div>
-                        <div class="page-pagination">
-                            <a href="#"><img src="img/shop/prev.png" alt=""></a>
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#"><img src="img/shop/next.png" alt=""></a>
-                        </div>
-                    </div>
+                        {!! $products->links('client.partials.paginate')  !!}
                     <div class="col-md-3 col-sm-3">
                         <form class="shop-form-2">
 
@@ -131,11 +124,11 @@
                                 <input type="checkbox" /><span>All</span>
                             </label>
 
-                            @for($i = 1 ; $i<= 6 ; $i++)
-                            <label class="checkbox-entry">
-                                <input type="checkbox" /><span>Curabitur fermentum</span>
+                            @foreach($category_list as $category)
+                            <label class="checkbox">
+                                <a href="{{route('client.product.category',['id'=> $category->id])}}">{{ $category->name}}<span> {{count($category->product)}}</span></a> 
                             </label>
-                            @endfor
+                            @endforeach
 
                             <div class="empty-space h30-xs h45-md"></div>
 

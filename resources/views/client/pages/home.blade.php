@@ -3,22 +3,22 @@
   
   <div id="content">
 
-
         <!-- banner -->
         <!-- swiper -->
         <div class="swiper-style-banner">
             <div class="bg"></div>
             <div class="swiper-container" data-speed="1000" data-parallax="1" data-pagination-rel="0" data-breakpoints="1" data-slides-per-view="1" data-xs-slides="1" data-sm-slides="1" data-md-slides="1">
                 <div class="swiper-wrapper">
+                    @for($i = 1 ; $i<=4 ; $i++)
                     <div class="swiper-slide">
                         <div class="banner">
                             <div class="banner-inner">
-                                <div class="banner-item" style="background-image: url({{asset('administrator/img/banner-img-1.jpg')}});">
+                                <div class="banner-item" style="background-image: url({{asset('administrator/img/banner-img-'.$i.'.jpg')}});">
                                     <div class="banner-item-small-wrapper">
                                         <div class="banner-item-small">
                                             <span data-swiper-parallax="-100"><i>branding &#47; photoshooting</i></span>
                                             <span data-swiper-parallax="-200"><i>for:</i> <a href="#">Fashion Life company</a></span>
-                                            <div class="banner-item-small-img" style="background-image: url({{asset('administrator/img/banner-img-1-1.jpg')}});"></div>
+                                            <div class="banner-item-small-img" style="background-image: url({{asset('administrator/img/banner-img-'.$i.'-1.jpg')}});"></div>
                                         </div>                                    
                                     </div>
                                     <article class="text-center">
@@ -30,66 +30,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="banner">
-                            <div class="banner-inner">
-                                <div class="banner-item" style="background-image: url({{asset('administrator/img/banner-img-2.jpg')}});">
-                                    <div class="banner-item-small-wrapper">
-                                        <div class="banner-item-small">
-                                            <span data-swiper-parallax="-100"><i>branding &#47; photoshooting</i></span>
-                                            <span data-swiper-parallax="-200"><i>for:</i> <a href="#">Fashion Life company</a></span>
-                                            <div class="banner-item-small-img" style="background-image: url({{asset('administrator/img/banner-img-2-1.jpg')}});"></div>
-                                        </div>                                    
-                                    </div>
-                                    <article class="text-center">
-                                        <h2 class="h1" data-swiper-parallax="-200">Art &#8211; real passion</h2>
-                                        <p data-swiper-parallax="-400"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum id metus ac tempus. Praesent ut mauris eget velit volutpat posuere</span></p>
-                                        <div class="btn-wrap" data-swiper-parallax="-600"><a href="#" class="btn-1"><span>view more</span></a></div>
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="banner">
-                            <div class="banner-inner">
-                                <div class="banner-item" style="background-image: url({{asset('administrator/img/banner-img-3.jpg')}});">
-                                    <div class="banner-item-small-wrapper">
-                                        <div class="banner-item-small">
-                                            <span data-swiper-parallax="-100"><i>branding &#47; photoshooting</i></span>
-                                            <span data-swiper-parallax="-200"><i>for:</i> <a href="#">Fashion Life company</a></span>
-                                            <div class="banner-item-small-img" style="background-image: url({{asset('administrator/img/banner-img-3-1.jpg')}});"></div>
-                                        </div>                                    
-                                    </div>
-                                    <article class="text-center">
-                                        <h2 class="h1" data-swiper-parallax="-200">Art &#8211; real passion</h2>
-                                        <p data-swiper-parallax="-400"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum id metus ac tempus. Praesent ut mauris eget velit volutpat posuere</span></p>
-                                        <div class="btn-wrap" data-swiper-parallax="-600"><a href="#" class="btn-1"><span>view more</span></a></div>
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="banner">
-                            <div class="banner-inner">
-                                <div class="banner-item" style="background-image: url({{asset('administrator/img/banner-img-4.jpg')}});">
-                                    <div class="banner-item-small-wrapper">
-                                        <div class="banner-item-small">
-                                            <span data-swiper-parallax="-100"><i>branding &#47; photoshooting</i></span>
-                                            <span data-swiper-parallax="-200"><i>for:</i> <a href="#">Fashion Life company</a></span>
-                                            <div class="banner-item-small-img" style="background-image: url({{asset('administrator/img/banner-img-4-1.jpg')}});"></div>
-                                        </div>                                    
-                                    </div>
-                                    <article class="text-center">
-                                        <h2 class="h1" data-swiper-parallax="-200">Art &#8211; real passion</h2>
-                                        <p data-swiper-parallax="-400"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum id metus ac tempus. Praesent ut mauris eget velit volutpat posuere</span></p>
-                                        <div class="btn-wrap" data-swiper-parallax="-600"><a href="#" class="btn-1"><span>view more</span></a></div>
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endfor
                 </div>
                 <div class="swiper-pagination swiper-pagination-black"></div>
             </div>
@@ -124,7 +65,7 @@
                         <div class="article-wrapper">
                             <article>
                                 <a href="{{route('client.product.category',['id'=> $category->id])}}"><h6 class="h8 hover-3">{{$category -> name }}</h6></a>
-                                <p>Quisque with placerat Porttitor nisi felis Congue in & Tempus</p>
+                                {{-- <p>Quisque with placerat Porttitor nisi felis Congue in & Tempus</p> --}}
                             </article>
                         </div>
                     </div>
@@ -291,6 +232,7 @@
             </div>
             <div class="empty-space h45-xs h10-md"></div>
             <div class="row work-wrapper">
+                @for($i =1 ; $i <=6 ; $i++)
                 <div class="col-md-6">
                     <div class="work-item">
                         <span><i>for:</i> <a href="#">Fashion Life company</a></span>
@@ -298,65 +240,11 @@
                         <span><i>branding &#47; photoshooting</i></span>
                         <div class="bg"></div>
                         <a href="{{asset('administrator/img/img-1.jpg')}}" class="work-img-wrapper lightbox">
-                            <div class="work-img" style="background-image: url({{asset('administrator/img/img-1.jpg')}});"></div>
+                            <div class="work-img" style="background-image: url({{asset('administrator/img/img-'.$i.'.jpg')}});"></div>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="work-item style-2">
-                        <span><i>for:</i> <a href="#">Fashion Life company</a></span>
-                        <span class="h5"><a class="hover-2" href="detail.html">Stories of mermaids</a></span>
-                        <span><i>branding &#47; photoshooting</i></span>
-                        <div class="bg"></div>
-                        <a href="{{asset('administrator/img/img-2.jpg')}}" class="work-img-wrapper lightbox">
-                            <div class="work-img" style="background-image: url({{asset('administrator/img/img-2.jpg')}});"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="work-item">
-                        <span><i>for:</i> <a href="#">Fashion Life company</a></span>
-                        <span class="h5"><a class="hover-2" href="detail.html">By love tonel to you</a></span>
-                        <span><i>branding &#47; photoshooting</i></span>
-                        <div class="bg"></div>
-                        <a href="{{asset('administrator/img/img-3.jpg')}}" class="work-img-wrapper lightbox">
-                            <div class="work-img" style="background-image: url({{asset('administrator/img/img-3.jpg')}});"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="work-item style-2">
-                        <span><i>for:</i> <a href="#">Fashion Life company</a></span>
-                        <span class="h5"><a class="hover-2" href="detail.html">Eye by animals</a></span>
-                        <span><i>branding &#47; photoshooting</i></span>
-                        <div class="bg"></div>
-                        <a href="{{asset('administrator/img/img-4.jpg')}}" class="work-img-wrapper lightbox">
-                            <div class="work-img" style="background-image: url({{asset('administrator/img/img-4.jpg')}});"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="work-item">
-                        <span><i>for:</i> <a href="#">Fashion Life company</a></span>
-                        <span class="h5"><a class="hover-2" href="detail.html">Close your mind</a></span>
-                        <span><i>branding &#47; photoshooting</i></span>
-                        <div class="bg"></div>
-                        <a href="{{asset('administrator/img/img-5.jpg')}}" class="work-img-wrapper lightbox">
-                            <div href="#" class="work-img" style="background-image: url({{asset('administrator/img/img-5.jpg')}});"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="work-item style-2">
-                        <span><i>for:</i> <a href="#">Fashion Life company</a></span>
-                        <span class="h5"><a class="hover-2" href="detail.html">I waiting for you now</a></span>
-                        <span><i>branding &#47; photoshooting</i></span>
-                        <div class="bg"></div>
-                        <a href="{{asset('administrator/img/img-6.jpg')}}" class="work-img-wrapper lightbox">
-                            <div class="work-img" style="background-image: url({{asset('administrator/img/img-6.jpg')}});"></div>
-                        </a>
-                    </div>
-                </div>
+                @endfor
             </div>
         </div>
         <!-- our works -->
@@ -577,24 +465,13 @@
             <div class="empty-space h40-xs h40-md"></div>
             <div class="customers-icons">
                 <div class="row">
+                    @for($i=1 ; $i <=6 ; $i++)
                     <div class="col-md-2 col-sm-2 col-xs-4">
-                        <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/client-icon.png')}}" alt=""></a>
+                        <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/client-icon-'.$i.'.png')}}" alt=""></a>
                     </div>
-                    <div class="col-md-2 col-sm-2 col-xs-4">
-                        <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/client-icon-2.png')}}" alt=""></a>
-                    </div>
-                    <div class="col-md-2 col-sm-2 col-xs-4">
-                        <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/client-icon-3.png')}}" alt=""></a>
-                    </div>
-                    <div class="col-md-2 col-sm-2 col-xs-4">
-                        <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/client-icon-4.png')}}" alt=""></a>
-                    </div>
-                    <div class="col-md-2 col-sm-2 col-xs-4">
-                        <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/client-icon-5.png')}}" alt=""></a>
-                    </div>
-                    <div class="col-md-2 col-sm-2 col-xs-4">
-                        <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/client-icon-6.png')}}" alt=""></a>
-                    </div>
+
+                    @endfor
+
                 </div>
             </div>
         </div>
@@ -623,11 +500,12 @@
                     <div class="swiper-style-1 reverse">
                         <div class="swiper-container" data-speed="1000" data-breakpoints="1" data-slides-per-view="1" data-xs-slides="1" data-sm-slides="1" data-md-slides="1">
                             <div class="swiper-wrapper">
+                                @for($i =1 ; $i<=5 ; $i++)
                                 <div class="swiper-slide">
                                     <div class="row nopadding">
                                         <div class="col-sm-10 col-sm-offset-0 col-md-6 col-md-offset-1">
                                             <div class="img-wrapper">
-                                                <img src="{{asset('administrator/img/swiper-img-5.jpg')}}" alt="">
+                                                <img src="{{asset('administrator/img/swiper-img-'.$i.'.jpg')}}" alt="">
                                             </div>
                                         </div>
                                         <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
@@ -643,86 +521,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="row nopadding">
-                                        <div class="col-sm-10 col-sm-offset-0 col-md-6 col-md-offset-1">
-                                            <div class="img-wrapper">
-                                                <img src="{{asset('administrator/img/swiper-img-5-2.jpg')}}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
-                                            <article class="small-sm">
-                                                <h6 class="h6">How we do this</h6>
-                                                <div class="empty-space h5-xs"></div>
-                                                <i>about technic</i>
-                                                <div class="empty-space h15-xs"></div>
-                                                <p>Phasellus mattis magna vel augue gravida eleifend. Donec sit amet diam mollis, sodales lorem vel, blandit orci. Proin nec mauris lectus Pellentesque habitant morbi tristique senectus et netus et malesuada fames making better</p>
-                                                <div class="empty-space h35-xs"></div>
-                                                <div class="btn-wrap"><a href="#" class="btn-2"><span>lern more</span></a></div>
-                                            </article>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="row nopadding">
-                                        <div class="col-sm-10 col-sm-offset-0 col-md-6 col-md-offset-1">
-                                            <div class="img-wrapper">
-                                                <img src="{{asset('administrator/img/swiper-img-5-3.jpg')}}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
-                                            <article class="small-sm">
-                                                <h6 class="h6">How we do this</h6>
-                                                <div class="empty-space h5-xs"></div>
-                                                <i>about technic</i>
-                                                <div class="empty-space h15-xs"></div>
-                                                <p>Phasellus mattis magna vel augue gravida eleifend. Donec sit amet diam mollis, sodales lorem vel, blandit orci. Proin nec mauris lectus Pellentesque habitant morbi tristique senectus et netus et malesuada fames making better</p>
-                                                <div class="empty-space h35-xs"></div>
-                                                <div class="btn-wrap"><a href="#" class="btn-2"><span>lern more</span></a></div>
-                                            </article>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="row nopadding">
-                                        <div class="col-sm-10 col-sm-offset-0 col-md-6 col-md-offset-1">
-                                            <div class="img-wrapper">
-                                                <img src="{{asset('administrator/img/swiper-img-5-4.jpg')}}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
-                                            <article class="small-sm">
-                                                <h6 class="h6">How we do this</h6>
-                                                <div class="empty-space h5-xs"></div>
-                                                <i>about technic</i>
-                                                <div class="empty-space h15-xs"></div>
-                                                <p>Phasellus mattis magna vel augue gravida eleifend. Donec sit amet diam mollis, sodales lorem vel, blandit orci. Proin nec mauris lectus Pellentesque habitant morbi tristique senectus et netus et malesuada fames making better</p>
-                                                <div class="empty-space h35-xs"></div>
-                                                <div class="btn-wrap"><a href="#" class="btn-2"><span>learn more</span></a></div>
-                                            </article>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="row nopadding">
-                                        <div class="col-sm-10 col-sm-offset-0 col-md-6 col-md-offset-1">
-                                            <div class="img-wrapper">
-                                                <img src="{{asset('administrator/img/swiper-img-5-5.jpg')}}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
-                                            <article class="small-sm">
-                                                <h6 class="h6">How we do this</h6>
-                                                <div class="empty-space h5-xs"></div>
-                                                <i>about technic</i>
-                                                <div class="empty-space h15-xs"></div>
-                                                <p>Phasellus mattis magna vel augue gravida eleifend. Donec sit amet diam mollis, sodales lorem vel, blandit orci. Proin nec mauris lectus Pellentesque habitant morbi tristique senectus et netus et malesuada fames making better</p>
-                                                <div class="empty-space h35-xs"></div>
-                                                <div class="btn-wrap"><a href="#" class="btn-2"><span>lern more</span></a></div>
-                                            </article>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endfor
                             </div>
                             <div class="swiper-pagination swiper-pagination-black"></div>
                         </div>
@@ -751,7 +550,7 @@
             <div class="empty-space h45-xs h65-md"></div>
             <div class="row">
                 <div class="col-md-12">
-                    <!-- swiper -->
+                    <!-- swiper Product Lastest -->
                     <div class="swiper-style-4">
                         <div class="swiper-container" data-speed="1000" data-space="30" data-breakpoints="1" data-slides-per-view="3" data-xs-slides="1" data-sm-slides="2" data-md-slides="3">
                             <div class="swiper-wrapper">
@@ -778,7 +577,7 @@
                     </div>
                 </div>
             </div>
-
+{{-- Lastest Feature Product --}}
             <div class="empty-space h30-xs h100-md"></div>
             <div class="row">
                 <div class="col-xs-12 text-center">
@@ -816,33 +615,7 @@
         <div class="empty-space h30-xs"></div>
 
         <!-- instagram -->
-            <div class="container instagram">
-                <div class="row flex-eq-h nopadding">
-                    <div class="col-md-3 text-center nopadding">
-                        <div class="article-wrapper flex-md">
-                            <article class="bg-text">
-                                <h6 class="h8">follow us</h6>
-                                <div class="empty-space h15-xs"></div>
-                                <p>on instagram</p>
-                                <div class="empty-space h15-xs"></div>
-                                <a href="#">&#35;mevo</a>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="col-md-9 nopadding">
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-1.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-2.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-3.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-4.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-5.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-6.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-7.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-8.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-9.jpg')}}" alt=""></a></div>
-                        <div><a href="#"><img src="{{asset('administrator/img/instagram-10.jpg')}}" alt=""></a></div>
-                    </div>
-                </div>
-            </div>
+            @include('client.partials.instagram')
         <!-- instagram -->
 
         <div class="empty-space h35-xs h100-md"></div>

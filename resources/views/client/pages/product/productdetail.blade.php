@@ -27,22 +27,21 @@
                         <div class="detail-item">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <img class="img-main" src="{{asset('administrator/img/shop/item-7.jpg')}}" alt="">
+                                    <img class="img-main" src="{{asset('images/'.$products->product_image[0]->image)}}" alt="">
                                     <div class="img-preview">
-                                        <img data-src="{{asset('administrator/img/shop/item-7.jpg')}}" src="{{asset('administrator/img/shop/item-7-xs.jpg')}}" alt="">
-                                        <img data-src="{{asset('administrator/img/shop/item-7-2.jpg')}}" src="{{asset('administrator/img/shop/item-7-2-xs.jpg')}}" alt="">
-                                        <img data-src="{{asset('administrator/img/shop/item-7-3.jpg')}}" src="{{asset('administrator/img/shop/item-7-3-xs.jpg')}}" alt="">
-                                        <img data-src="{{asset('administrator/img/shop/item-7-4.jpg')}}" src="{{asset('administrator/img/shop/item-7-4-xs.jpg')}}" alt="">
+                                        @foreach($products->product_image as $pi)
+                                        <img src="{{asset('images/'. $pi->image)}}" alt="">
+                                        @endforeach
                                     </div>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="col-md-5">
                                     <article class="description">
-                                        <h3 class="h3">geometric chandelier</h3>
+                                        <h3 class="h3">{{ $products->name}}</h3>
                                         <ul>
                                             <li>
                                                 <span>price:</span>
-                                                <span class="price">&#36;567<sup>00</sup></span>
+                                                <span class="price">{{(number_format($products->price,0,"","."))}}VND</span>
                                             </li>
                                             <li>
                                                 <span>Reviews:</span>
@@ -63,7 +62,7 @@
                                                 </span>
                                             </li>
                                         </ul>
-                                        <p>Ut enim ad minim veniam, quis nostrud laboris nisi ut aliquip com qu duis aute irure dolor in reprehenderit  cillum dolore eu fugiat nulla pariatur excepteur sint occa ecat cupidatat culpa qui officia</p>
+                                        <p>{{$products->description}}</p>
                                     </article>
                                     <div class="quantity-wrapper">
                                         <span>quantity:</span>
@@ -77,9 +76,9 @@
                                     <div class="btn-wrap"><a href="#" class="btn-1 border"><span>add to favourites</span></a></div>
                                     <div class="follow-category">
                                         <span>Category:</span>
-                                        <div class="category">
-                                            Physical
-                                        </div>
+                                        <a href="{{route('client.product.category',['id'=>$products->category->id])}}" class="category">
+                                            {{$products->category->name}}
+                                        </a>
                                     </div>
                                     <div class="follow-tag">
                                         <span>Tag:</span>
@@ -109,12 +108,8 @@
                                     <div class="tab-menu">Testimonials</div>
                                     <div class="tab-entry" style="display: block;">
                                         <div class="article">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat</p>
-                                            <ul class="disc">
-                                                <li>aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat sit voluptatem accusantium doloremque lauda ntium, totam rem aperiam, eaque ipsa</li>
-                                                <li>non proident, sunt in culpa qui officia deserunt mollit</li>
-                                                <li>anim id est laborum ut perspiciatis unde omnis iste natus error</li>
-                                            </ul>
+                                            <p>{!!$products->content ??  'Lorem Ipsum Icarus'!!}</p>
+
                                         </div>
                                     </div>
                                     <div class="tab-entry">
@@ -184,49 +179,23 @@
                                 <h2 class="h2">You may also like<span></span></h2>
                                 <div class="empty-space h30-xs"></div>
                             </div>
+                            @foreach($products_related as $item)
                             <div class="col-md-3 col-sm-6">
-                                <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-10-md.jpg')}}" alt="" class="img"></a>
+                                <a href="{{route('client.product.productdetail',['id'=>$item->id])}}" class="img-hover-2"><img src="{{asset('images/'.$item->image)}}" alt="" class="img"></a>
                                 <article>
                                     <div class="empty-space h10-xs"></div>
-                                    <a href="#"><h6 class="h8 hover-4">MINIMALISTIC LAMP</h6></a>
+                                    <a href="{{route('client.product.productdetail',['id'=>$item->id])}}"><h6 class="h8 hover-4">{{$item->name}}</h6></a>
                                     <div class="empty-space h5-xs"></div>
-                                    <span class="price price-sm">&#36;286<sup>00</sup></span>
+                                    <span class="price price-sm">{{ number_format($item->price,0,"",".") }}VND</span>
                                     <div class="empty-space h30-xs h0-sm"></div>
                                 </article>
                             </div>
-                            <div class="col-md-3 col-sm-6">
-                                <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-9-md.jpg')}}" alt="" class="img"></a>
-                                
-                                <article>
-                                    <div class="empty-space h10-xs"></div>
-                                    <a href="#"><h6 class="h8 hover-4">MINIMALISTIC LAMP</h6></a>
-                                    <div class="empty-space h5-xs"></div>
-                                    <span class="price price-sm">&#36;286<sup>00</sup></span>
-                                    <div class="empty-space h30-xs h0-sm"></div>
-                                </article>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-4-md.jpg')}}" alt="" class="img"></a>
-                                <article>
-                                    <div class="empty-space h10-xs"></div>
-                                    <a href="#"><h6 class="h8 hover-4">MINIMALISTIC LAMP</h6></a>
-                                    <div class="empty-space h5-xs"></div>
-                                    <span class="price price-sm">&#36;286<sup>00</sup></span>
-                                    <div class="empty-space h30-xs h0-sm"></div>
-                                </article>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <a href="#" class="img-hover-2"><img src="{{asset('administrator/img/shop/item-5-md.jpg')}}" alt="" class="img"></a>
-                                <article>
-                                    <div class="empty-space h10-xs"></div>
-                                    <a href="#"><h6 class="h8 hover-4">MINIMALISTIC LAMP</h6></a>
-                                    <div class="empty-space h5-xs"></div>
-                                    <span class="price price-sm">&#36;286<sup>00</sup></span>
-                                    <div class="empty-space h30-xs h0-sm"></div>
-                                </article>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
+
+
+                    
                     <div class="col-md-3 col-sm-3">
                         <div class="shop-form-2">
 
