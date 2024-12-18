@@ -12,4 +12,14 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $guarded = [];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
+    public function getImageUrlAttribute()
+    {
+        return url('images/category-images/' . $this->name . '/' . $this->image);
+    }
+
 }

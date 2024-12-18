@@ -14,7 +14,7 @@ use App\Http\Middleware\CheckLogin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('client.pages.home');
+    return redirect()->route('client.category.index');
 });
 
 Route::prefix('auth')->name('auth.')->group(function(){
@@ -75,9 +75,6 @@ Route::middleware(CheckLogin::class)->group(function(){
     });
 });
 
-
-
-
 // Route::prefix('client') -> name('client.' ) -> group(function(){
 //     Route::prefix('category') -> name('category.') ->controller(ClientController::class)->group(function(){
 //         Route::get('index','index')->name('index');
@@ -117,3 +114,6 @@ Route::prefix('client')->name('client.')->group(function(){
         Route::get('/them-gio-hang/{id}','addToCart')->name('addToCart');
     });
 });
+
+
+Route::get('/categories/{id}/products', [ProductController::class, 'getProductsByCategory']);

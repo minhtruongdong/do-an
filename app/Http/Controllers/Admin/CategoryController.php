@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\StoreRequest;
 use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -39,7 +40,11 @@ class CategoryController extends Controller
         // tên cột trong database = tên name trong input
         $category->name = $request->name;
         $category->status = $request->status;
+        $file = $request->file('image');
         
+        $fileName = time(). '-' . $file->getClientOriginalName() ;   
+        $file->move(public_path('images/category-images/'), $fileName);
+        $category->image = $fileName;
         $category->save();
  
         return redirect()->route('admin.category.index');
@@ -86,7 +91,10 @@ class CategoryController extends Controller
 
         $category ->name = $request->name;
         $category->status = $request->status;
-
+        $file = $request->file('image');
+        
+        $fileName = time(). '-' . $file->getClientOriginalName() ;   
+        $file->move(public_path('images/category-images/'), $fileName);
         $category->save();
         return redirect()->route('admin.category.index');
     }
@@ -104,6 +112,23 @@ class CategoryController extends Controller
 
         $category->delete();
         return redirect()->route('admin.category.index')->with('success','Delete Category Successfully');
+    }
+
+    public function getProductsByCategory($id)
+    {
+        // Lấy category theo ID
+        $category = Category::find($id);
+        
+        // Kiểm tra nếu category tồn tại
+        if (!$category) {
+            return response()->json(['products' => []]);
+        }
+
+        // Lấy các sản phẩm trong category đó
+        $products = Product::where('category_id', $id)->get();
+        
+        // Trả về dữ liệu sản phẩm dưới dạng JSON
+        return response()->json(['products' => $products]);
     }
 }
 

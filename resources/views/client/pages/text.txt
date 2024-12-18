@@ -1,0 +1,43 @@
+<!-- our works -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2 class="h2">View our works<span></span></h2>
+                </div>
+                <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+                    <div class="text-center grey-dark">
+                        <div class="empty-space h25-xs"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum id metus ac tempus. Praesent ut mauris eget velit volutpat posuere</p>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-space h45-xs h10-md"></div>
+            <div class="row work-wrapper">
+                @for($i =1 ; $i <=6 ; $i++)
+                <div class="col-md-6">
+                    <div class="work-item">
+                        <span><i>for:</i> <a href="#">Fashion Life company</a></span>
+                        <span class="h5"><a class="hover-2" href="detail.html">Keep the best moment</a></span>
+                        <span><i>branding &#47; photoshooting</i></span>
+                        <div class="bg"></div>
+                        <a href="{{asset('administrator/img/img-1.jpg')}}" class="work-img-wrapper lightbox">
+                            <div class="work-img" style="background-image: url({{asset('administrator/img/img-'.$i.'.jpg')}});"></div>
+                        </a>
+                    </div>
+                </div>
+                @endfor
+            </div>
+        </div>
+        <!-- our works -->
+
+        <div class="col-md-6">
+                    <div class="work-item style-2">
+                        <span><i>for:</i> <a href="#">Fashion Life company</a></span>
+                        <span class="h5"><a class="hover-2" href="detail.html">Stories of mermaids</a></span>
+                        <span><i>branding / photoshooting</i></span>
+                        <div class="bg"></div>
+                        <a href="img/img-2.jpg" class="work-img-wrapper lightbox">
+                            <div class="work-img" style="background-image: url(img/img-2.jpg);"></div>
+                        </a>
+                    </div>
+                </div>
