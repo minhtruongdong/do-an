@@ -25,7 +25,7 @@ class ClientController extends Controller
 
         $products_feature_lastest =Product::orderBy('created_at','DESC')
         ->with('category')
-        ->where('featured',2)
+        ->where('featured',1)
         ->first(); 
         
         // dd($products_lastest->toArray());
